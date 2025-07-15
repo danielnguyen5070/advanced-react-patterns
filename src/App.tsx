@@ -34,7 +34,7 @@ function App() {
           <Sidebar />
         </div>
         <main
-          className={`p-6 flex-1 ${
+          className={`px-6 flex-1 bg-gray-100 ${
             sidebarOpen ? "ml-0" : "ml-64"
           } transition-all duration-300 ease-in-out`}
         >
