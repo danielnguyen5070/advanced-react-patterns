@@ -21,21 +21,42 @@ function App() {
     >
       <div className="flex flex-col min-h-screen">
         <Nav user={user} />
-        <main className="w-full max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 mt-8 px-4">
-          <List sportList={sportList} setSelectedSport={setSelectedSport} />
-          <div className="min-w-full col-span-2">
-            <Details selectedSport={selectedSport} />
-          </div>
-        </main>
+        <Main
+          sportList={sportList}
+          selectedSport={selectedSport}
+          setSelectedSport={setSelectedSport}
+        />
         <Footer user={user} />
       </div>
     </div>
   );
 }
 
+function Main({
+  sportList,
+  selectedSport,
+  setSelectedSport,
+}: {
+  sportList: Array<SportData>;
+  selectedSport: SportData | null;
+  setSelectedSport: (sport: SportData) => void;
+}) {
+  return (
+    <main className="w-full max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 mt-8 px-4">
+      <List sportList={sportList} setSelectedSport={setSelectedSport} />
+      <div className="min-w-full col-span-2">
+        <Details selectedSport={selectedSport} />
+      </div>
+    </main>
+  );
+}
+
 function Nav({ user }: { user: User }) {
   return (
-    <nav className="flex justify-between items-center bg-gray-800 text-white p-4">
+    <nav
+      className="flex justify-between items-center bg-white text-white p-4"
+      style={{ backgroundColor: "var(--accent-color)" }}
+    >
       <ul className="flex gap-4 text-sm font-medium">
         <li>
           <a href="#/home" className="hover:text-blue-600">
@@ -102,7 +123,10 @@ function SportListItemButton({
     <button
       onClick={onClick}
       aria-label={sport.name}
-      style={{ ["--accent-color" as keyof React.CSSProperties]: sport.color }}
+      style={{
+        ["--accent-color" as keyof React.CSSProperties]: sport.color,
+        backgroundColor: "var(--accent-color)",
+      }}
       className="flex items-center p-3 bg-gray-200 rounded-lg  hover:bg-gray-100 transition border-gray-200 w-full text-left"
     >
       <img
@@ -111,7 +135,7 @@ function SportListItemButton({
         className="w-12 h-12 object-contain mr-4"
       />
       <div>
-        <strong className="text-lg text-gray-700">{sport.name}</strong>
+        <strong className="text-lg text-white">{sport.name}</strong>
       </div>
     </button>
   );
@@ -131,7 +155,10 @@ function Details({ selectedSport }: { selectedSport: SportData | null }) {
 
 function Footer({ user }: { user: User }) {
   return (
-    <footer className="bg-gray-800 text-white text-center py-4 mt-auto">
+    <footer
+      className="bg-gray-800 text-white text-center py-4 mt-auto"
+      style={{ backgroundColor: "var(--accent-color)" }}
+    >
       <p>
         Don't have a good day–have a great day,{" "}
         <span className="font-semibold">{user.name}</span>

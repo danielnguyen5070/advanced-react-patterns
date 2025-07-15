@@ -5,7 +5,7 @@ export const allSports: Record<string, SportData> = {
     id: "jfoJDiw8df.sdf",
     name: "Bulbasaur",
     image: "/img/bulbasaur.png",
-    color: "#e98080",
+    color: "#BF4B4B",
     tricks: [
       {
         name: "Tail Grind",
@@ -33,7 +33,7 @@ export const allSports: Record<string, SportData> = {
     id: "osdiCjew.s8efsz",
     image: "/img/charmander.png",
     name: "Charmander",
-    color: "#f4f4ad",
+    color: "#ADAD31",
     tricks: [
       {
         name: "Air to Fakie",
@@ -71,7 +71,7 @@ export const allSports: Record<string, SportData> = {
     id: "sdfj8sdfj.sdfj8sdfj",
     image: "/img/jigglypuff.png",
     name: "Jigglypuff",
-    color: "#a0afdd",
+    color: "#3B5AB4",
     tricks: [
       {
         name: "Butter",
@@ -104,7 +104,7 @@ export const allSports: Record<string, SportData> = {
     id: "rix38.sfjgihxl",
     image: "/img/meowth.png",
     name: "Meowth",
-    color: "#c0c5c1",
+    color: "#676767",
     tricks: [
       {
         name: "Rabona",
