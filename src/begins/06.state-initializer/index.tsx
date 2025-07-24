@@ -1,9 +1,9 @@
 import { Switch } from "../../shared/switch.tsx";
 import { useToggle } from "./toggle.tsx";
 
-const initialState = { on: false };
 export default function App() {
-  const { on, reset, getTogglerProps } = useToggle({ initialState });
+  const { on, getTogglerProps } = useToggle();
+  const reset = () => {};
   return (
     <div>
       <Switch {...getTogglerProps({ on })} />
