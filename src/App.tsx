@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Sidebar from "./components/Sidebar";
-import Composition from "./exercises/01.composition";
-import LatestRef from "./exercises/02.latest-ref";
-import CompoundComponents from "./exercises/03.compound-components";
-import Slots from "./exercises/04.slots";
-import PropCollectionsAndGetters from "./exercises/05.prop-collections-and-getters";
-import StateInitializer from "./exercises/06.state-initializer";
-import StateReducer from "./exercises/07.state-reducer";
-import ControlProps from "./exercises/08.control-props";
+import Composition from "./begins/01.composition";
+import LatestRef from "./begins/02.latest-ref";
+import CompoundComponents from "./begins/03.compound-components";
+import Slots from "./begins/04.slots";
+import PropCollectionsAndGetters from "./begins/05.prop-collections-and-getters";
+import StateInitializer from "./begins/06.state-initializer";
+import StateReducer from "./begins/07.state-reducer";
+import ControlProps from "./begins/08.control-props";
 
 const routes = [
   { path: "/composition", element: <Composition /> },
