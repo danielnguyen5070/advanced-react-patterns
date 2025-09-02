@@ -1,8 +1,7 @@
 
 import { useState } from "react";
-import { type User } from "./data/types";
 
-export function Nav({ user, theme, setTheme }: { user: User, theme: boolean, setTheme: (theme: boolean) => void }) {
+export function Nav({ avatar, theme, setTheme }: { avatar: React.ReactNode, theme: boolean, setTheme: (theme: boolean) => void }) {
     return (
         <nav
             className="flex justify-between items-center bg-white text-white p-4"
@@ -14,11 +13,7 @@ export function Nav({ user, theme, setTheme }: { user: User, theme: boolean, set
                         <div
                             className="w-10 h-10 overflow-hidden"
                         >
-                            <img
-                                src={user.image}
-                                alt={`${user.name} profile`}
-                                className="w-full h-full object-cover"
-                            />
+                            {avatar}
                         </div>
                     </a>
                 </li>

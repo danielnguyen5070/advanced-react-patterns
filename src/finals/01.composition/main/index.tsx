@@ -1,17 +1,12 @@
 
-import { Details } from "./Details.tsx";
-import { type SportData } from "../data/types.tsx";
-import { List } from "./List.tsx";
 import { useState } from "react";
 
 export default function Main({
-    sportList,
-    selectedSport,
-    setSelectedSport,
+    list,
+    content
 }: {
-    sportList: Array<SportData>;
-    selectedSport: SportData | null;
-    setSelectedSport: (sport: SportData) => void;
+    list: React.ReactNode;
+    content: React.ReactNode;
 }) {
     const [enabled, setEnabled] = useState(true);
 
@@ -25,11 +20,11 @@ export default function Main({
                         placeholder="Search..."
                         className="w-full p-2 my-4 border border-gray-300 rounded bg-white"
                     />
-                    <List sportList={sportList} setSelectedSport={setSelectedSport} />
+                    {list}
                 </div>
             </div>
             <div className="min-w-full col-span-2">
-                <Details selectedSport={selectedSport} />
+                {content}
             </div>
         </main>
     );

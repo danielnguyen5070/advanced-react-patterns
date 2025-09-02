@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Sidebar from "./components/Sidebar";
-import Composition from "./begins/01.composition";
+import Composition from "./finals/01.composition";
 import LatestRef from "./begins/02.latest-ref";
 import CompoundComponents from "./begins/03.compound-components";
 import Slots from "./begins/04.slots";
@@ -34,9 +34,8 @@ function App() {
           <Sidebar />
         </div>
         <main
-          className={`px-6 flex-1 bg-gray-100 ${
-            sidebarOpen ? "ml-0" : "ml-64"
-          } transition-all duration-300 ease-in-out`}
+          className={`px-6 flex-1 bg-gray-100 ${sidebarOpen ? "ml-0" : "ml-64"
+            } transition-all duration-300 ease-in-out`}
         >
           <button
             className="fixed top-4 left-4 z-50 p-2 bg-gray-900 text-white rounded"

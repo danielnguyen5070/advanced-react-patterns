@@ -11,18 +11,18 @@ function App() {
     Object.values(allSports)
   );
   const [selectedSport, setSelectedSport] = useState<SportData | null>(null);
-
+  const [isDarkTheme, setIsDarkTheme] = useState(false);
   return (
     <div
       id="app-root"
-      className="min-h-screen bg-gray-50 text-gray-800"
+      className={`min-h-screen text-gray-800 ${isDarkTheme ? "bg-gray-500" : "bg-gray-50"}`}
       style={{
         ["--accent-color" as keyof React.CSSProperties]:
           selectedSport?.color ?? "black",
       }}
     >
       <div className="flex flex-col min-h-screen">
-        <Nav user={user} />
+        <Nav user={user} theme={isDarkTheme} setTheme={setIsDarkTheme} />
         <Main
           sportList={sportList}
           selectedSport={selectedSport}
