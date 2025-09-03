@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Sidebar from "./components/Sidebar";
-import Composition from "./finals/01.composition";
-import LatestRef from "./begins/02.latest-ref";
+import Composition from "./begins/01.composition";
+import LatestRef from "./finals/02.latest-ref";
 import CompoundComponents from "./begins/03.compound-components";
 import Slots from "./begins/04.slots";
 import PropCollectionsAndGetters from "./begins/05.prop-collections-and-getters";
