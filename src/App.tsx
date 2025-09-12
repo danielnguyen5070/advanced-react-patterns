@@ -5,8 +5,8 @@ import Composition from "./begins/01.composition";
 import LatestRef from "./begins/02.latest-ref";
 import CompoundComponents from "./begins/03.compound-components";
 import Slots from "./begins/04.slots";
-import PropCollectionsAndGetters from "./finals/05.prop-collections-and-getters";
-import StateInitializer from "./begins/06.state-initializer";
+import PropCollectionsAndGetters from "./begins/05.prop-collections-and-getters";
+import StateInitializer from "./finals/06.state-initializer";
 import StateReducer from "./begins/07.state-reducer";
 import ControlProps from "./begins/08.control-props";
 
