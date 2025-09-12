@@ -6,8 +6,8 @@ import LatestRef from "./begins/02.latest-ref";
 import CompoundComponents from "./begins/03.compound-components";
 import Slots from "./begins/04.slots";
 import PropCollectionsAndGetters from "./begins/05.prop-collections-and-getters";
-import StateInitializer from "./finals/06.state-initializer";
-import StateReducer from "./begins/07.state-reducer";
+import StateInitializer from "./begins/06.state-initializer";
+import StateReducer from "./finals/07.state-reducer";
 import ControlProps from "./begins/08.control-props";
 
 const routes = [
