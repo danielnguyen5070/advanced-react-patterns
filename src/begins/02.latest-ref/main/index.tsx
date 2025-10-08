@@ -1,5 +1,6 @@
 
 import { useState } from "react";
+import { Search } from "lucide-react"
 
 export default function Main({
     list,
@@ -9,17 +10,30 @@ export default function Main({
     content: React.ReactNode;
 }) {
     const [enabled, setEnabled] = useState(true);
+    const [query, setQuery] = useState("");
+
+    const handleSearchClick = () => {
+        console.log("Search clicked with query:", query);
+    };
+
+    const debouncedSearch = debounce(handleSearchClick, 3000);
 
     return (
         <main className="w-full mx-auto grid grid-cols-3 gap-6 mt-8 px-4">
             <div>
                 <ToggleButton enabled={enabled} setEnabled={setEnabled} />
                 <div className={`${enabled ? "block" : "hidden"}`}>
-                    <input
-                        type="text"
-                        placeholder="Search..."
-                        className="w-full p-2 my-4 border border-gray-300 rounded bg-white"
-                    />
+                    <div className="relative w-full my-4">
+                        <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5 cursor-pointer"
+                            onClick={debouncedSearch} />
+                        <input
+                            type="text"
+                            placeholder="Search..."
+                            value={query}
+                            onChange={(e) => setQuery(e.target.value)}
+                            className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        />
+                    </div>
                     {list}
                 </div>
             </div>
@@ -43,4 +57,13 @@ function ToggleButton({ enabled, setEnabled }: { enabled: boolean, setEnabled: (
             />
         </button>
     );
+}
+
+function debounce<F extends (...args: Parameters<F>) => void>(func: F, waitFor: number) {
+    let timeout: ReturnType<typeof setTimeout>;
+
+    return (...args: Parameters<F>): void => {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func(...args), waitFor);
+    }
 }
