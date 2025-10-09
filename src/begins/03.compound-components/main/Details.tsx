@@ -1,6 +1,7 @@
 import { SportDataView } from "../data/SportDataView";
 import { type SportData } from "../data/types.tsx";
 import { useState } from "react";
+import { EmptySportData } from "../data/EmptySportData";
 
 export function Details({ selectedSport }: { selectedSport: SportData | null }) {
     const [enabled, setEnabled] = useState(true);
@@ -16,7 +17,7 @@ export function Details({ selectedSport }: { selectedSport: SportData | null }) 
                 {selectedSport ? (
                     <SportDataView sport={selectedSport} />
                 ) : (
-                    <div className="text-gray-500 italic"></div>
+                    <EmptySportData />
                 )}
             </div>
         </div>
