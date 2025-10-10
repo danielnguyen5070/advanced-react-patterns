@@ -24,8 +24,8 @@ function debounce<F extends (...args: Parameters<F>) => void>(func: F, waitFor: 
 }
 
 export const SearchComp = ({ list }: { list: React.ReactNode }) => {
-    const { enabled, handleSearchClick } = useSlots("toggle");
-    const { query, setQuery } = useSlots("search");
+    const { enabled } = useSlots("toggle");
+    const { query, setQuery, handleSearchClick } = useSlots("search");
     const { id } = useSlots("label");
     const debouncedSearch = useDebounce(handleSearchClick as () => void, 3000);
 

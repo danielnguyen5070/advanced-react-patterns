@@ -10,8 +10,8 @@ export const SlotsProvider = ({ children }: { children: React.ReactNode }) => {
     const id = useId();
 
     const slots = {
-        toggle: { enabled, setEnabled, handleSearchClick },
-        search: { query, setQuery },
+        toggle: { enabled, setEnabled },
+        search: { query, setQuery, handleSearchClick },
         label: { id }
     };
 
