@@ -1,6 +1,40 @@
-import { Search } from "lucide-react"
-import { useSlots } from "../sport-data-logic/slotsLogic";
 import { useEffect, useMemo, useRef } from "react";
+import { Search } from "lucide-react"
+import { useSlot } from "../sport-data-logic/SlotUse";
+function SearchComp({ list }: { list: React.ReactNode; }) {
+    const { query, setQuery, handleSearchClick } = useSlot("search") as {
+        query: string;
+        setQuery: (value: string) => void;
+        handleSearchClick: () => void;
+    };
+
+    const { enabled } = useSlot("toggle") as {
+        enabled: boolean;
+    };
+    const labelProps = useSlot("label")
+    const inputProps = useSlot("input")
+
+    const debouncedSearch = useDebounce(handleSearchClick, 3000);
+
+    return <div className={`${enabled ? "block" : "hidden"}`}>
+        <label className="block text-sm font-medium text-gray-700"
+            {...labelProps}
+        >Search</label>
+        <div className="relative w-full my-4">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5 cursor-pointer"
+                onClick={debouncedSearch} />
+            <input
+                type="text"
+                placeholder="Search..."
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                {...inputProps}
+            />
+        </div>
+        {list}
+    </div>
+}
 
 function useDebounce<F extends (...args: Parameters<F>) => ReturnType<F>>(func: F, waitFor: number) {
     const lastedFunc = useRef(func);
@@ -23,28 +57,4 @@ function debounce<F extends (...args: Parameters<F>) => void>(func: F, waitFor: 
     }
 }
 
-export const SearchComp = ({ list }: { list: React.ReactNode }) => {
-    const { enabled } = useSlots("toggle");
-    const { query, setQuery, handleSearchClick } = useSlots("search");
-    const { id } = useSlots("label");
-    const debouncedSearch = useDebounce(handleSearchClick as () => void, 3000);
-
-    return <div className={`${enabled ? "block" : "hidden"}`}>
-        <div className="relative w-full my-4">
-            <label htmlFor={id as string} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5 cursor-pointer">
-                <Search
-                    onClick={debouncedSearch}
-                />
-            </label>
-            <input
-                id={id as string}
-                type="text"
-                placeholder="Search..."
-                value={query as string}
-                onChange={(e) => (setQuery as (value: string) => void)(e.target.value)}
-                className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-        </div>
-        {list}
-    </div>
-}
+export default SearchComp;
