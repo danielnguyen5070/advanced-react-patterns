@@ -2,6 +2,10 @@
 import { useState } from "react";
 
 export function Nav({ avatar, theme, setTheme }: { avatar: React.ReactNode, theme: boolean, setTheme: (theme: boolean) => void }) {
+    const [selected, setSelected] = useState("");
+
+    const options = ["News", "Event", "Community"];
+
     return (
         <nav
             className="flex justify-between items-center bg-white text-white p-4"
@@ -18,7 +22,7 @@ export function Nav({ avatar, theme, setTheme }: { avatar: React.ReactNode, them
                     </a>
                 </li>
                 <li className="items-center flex">
-                    <Dropdown />
+                    <Dropdown selected={selected} setSelected={setSelected} options={options} />
                 </li>
                 <li className="items-center flex">
                     <a href="#/contact" className="hover:text-blue-600">
@@ -46,10 +50,7 @@ function ToggleButton({ enabled, setEnabled }: { enabled: boolean, setEnabled: (
     );
 }
 
-function Dropdown() {
-    const [selected, setSelected] = useState("");
-
-    const options = ["News", "Event", "Community"];
+function Dropdown({ selected, setSelected, options }: { selected: string, setSelected: (value: string) => void, options: string[] }) {
 
     return (
         <div className="">
