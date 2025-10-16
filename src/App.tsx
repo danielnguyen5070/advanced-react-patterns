@@ -8,7 +8,7 @@ import Slots from "./begins/04.slots";
 import PropCollectionsAndGetters from "./begins/05.prop-collections-and-getters";
 import StateInitializer from "./begins/06.state-initializer";
 import StateReducer from "./begins/07.state-reducer";
-import ControlProps from "./finals/08.control-props";
+import ControlProps from "./begins/08.control-props";
 
 const routes = [
   { path: "/composition", element: <Composition /> },
